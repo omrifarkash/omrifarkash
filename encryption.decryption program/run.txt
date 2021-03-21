@@ -1,0 +1,2 @@
+java -jar Encrypt.jar programParams.properties ks1.pkcs12 123456 dor omricert plaintext.txt
+java -jar Decrypt.jar ks2.pkcs12 123456 omri dorcert programParams.properties

@@ -1,0 +1,11 @@
+Generate private and public key pair for both sides:
+keytool -genkeypair -alias dor -keyalg RSA -keystore ks1.pkcs12 -keypass 123456
+keytool -genkeypair -alias omri -keyalg RSA -keystore ks2.pkcs12 -keypass 123456
+
+Generate self-signed certificate for both sides:
+keytool -export -alias dor -keystore ks1.pkcs12 -rfc -file dorcert.cert
+keytool -export -alias omri -keystore ks2.pkcs12 -rfc -file omricert.cert
+
+Transfer certificates between sides:
+keytool -importcert -alias dorcert -keystore ks2.pkcs12 -file dorcert.cert
+keytool -importcert -alias omricert -keystore ks1.pkcs12 -file omricert.cert
